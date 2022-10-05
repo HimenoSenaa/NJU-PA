@@ -12,6 +12,7 @@
 #define MAX_INSTR_TO_PRINT 10
 
 CPU_state cpu = {};
+CSR_state csr = {};
 uint64_t g_nr_guest_instr = 0;
 static uint64_t g_timer = 0; // unit: us
 static bool g_print_step = false;

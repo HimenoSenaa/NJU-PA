@@ -200,7 +200,7 @@ typedef uint64_t word_t;
 typedef uint32_t word_t;
 #endif
 
-#define NUM_LEN 32
+#define NUM_LEN 3200
 #define OSTRING_LEN 5120
 
 int printf(const char *fmt, ...)

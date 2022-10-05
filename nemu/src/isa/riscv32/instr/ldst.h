@@ -1,7 +1,7 @@
 def_EHelper(lw) {
   // printf("load the lw\n");
   // rtl_sext(s, &id_src2->imm, &id_src2->imm, 2);
-  rtl_lm(s, ddest, dsrc1, id_src2->imm, 4);
+  rtl_lms(s, ddest, dsrc1, id_src2->imm, 4);
   // printf("load the %p = %p + %x\n", ddest, dsrc1, id_src2->imm);
   // printf("Ending def_EHelper: lw, pc = %x, dnpc = %x\n", s->pc, s->dnpc);
   // isa_reg_display();

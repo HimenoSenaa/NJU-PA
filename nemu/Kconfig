@@ -146,8 +146,23 @@ config ITRACE_COND
 
 config MTRACE
   depends on TRACE
-  bool "Enable instruction Memorytacer"
+  bool "Enable MemoryOper tacer"
   default y
+
+config DTRACE
+  depends on TRACE
+  bool "Enable instruction Devicetacer"
+  default y
+
+config ETRACE
+  depends on TRACE
+  bool "Enable exception tracer"
+  default y
+
+config STRACE
+depends on TRACE
+bool "Enable Syscall tracer"
+default y
 
 config DIFFTEST
   depends on TARGET_NATIVE_ELF

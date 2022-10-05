@@ -164,6 +164,16 @@ char *strcat(char *dst, const char *src) {
   return dst;
 }
 
+char *strncat(char *dst, const char *src, size_t n) {
+  int i, j;
+  for(i = 0; dst[i] != '\0'; ++i) {}
+  for(j = 0; src[j] != '\0' && j < n; ++j, ++i) {
+    dst[i] = src[j]; 
+  }
+  dst[i] = '\0';
+  return dst;
+}
+
 int strcmp(const char *s1, const char *s2) {
   int i;
   for (i = 0; s1[i] != '\0' && s2[i] != '\0'; ++i){

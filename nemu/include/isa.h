@@ -8,13 +8,18 @@
 // It will be expanded as "x86" or "mips32" ...
 typedef concat(__GUEST_ISA__, _CPU_state) CPU_state;
 typedef concat(__GUEST_ISA__, _ISADecodeInfo) ISADecodeInfo;
-
+typedef concat(__GUEST_ISA__, _CSR_state) CSR_state;
 // monitor
 extern char isa_logo[];
 void init_isa();
 
+#define CSRS_LIST(f) f(MTVEC), f(MEPC), f(MSTATUS), f(MCAUSE), f(SATP), f(MSCRATCH)
+#define REGNAME(name) concat(REG_, name)
+enum { CSRS_LIST(REGNAME) };
+
 // reg
 extern CPU_state cpu;
+extern CSR_state csr;
 void isa_reg_display();
 word_t isa_reg_str2val(const char *name, bool *success);
 
@@ -44,5 +49,8 @@ void isa_difftest_attach();
   // for ref
 void isa_difftest_regcpy(void *dut, bool direction);
 void isa_difftest_raise_intr(word_t NO);
+
+#define MSTATUS_MIE 0x00000008
+#define MSTATUS_MPIE 0x00000080
 
 #endif
